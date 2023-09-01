@@ -23,12 +23,9 @@ import (
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "eryajfctl",
-	Short: "eryajf goscript",
-	Long:  `利用cobra制作运维日常工具箱的框架。`,
-	// Uncomment the following line if your bare application
-	// has an action associated with it:
-	// Run: func(cmd *cobra.Command, args []string) { },
+	Use:   "gcs",
+	Short: "gitlab code search",
+	Long:  `通过关键字搜索gitlab所有匹配的项目。`,
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
@@ -39,4 +36,11 @@ func Execute() {
 
 func init() {
 	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+
+	// 获取配置文件
+	rootCmd.AddCommand(GetConfigCmd)
+	cset := GetConfigCmd.Flags()
+	cset.StringP("branch", "b", "master", "每个项目检索的分支，默认为master")
+	cset.StringP("word", "w", "", "检索的关键字")
+	_ = GetConfigCmd.MarkFlagRequired("word")
 }

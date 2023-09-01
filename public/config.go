@@ -11,8 +11,8 @@ import (
 
 // Configuration 项目配置
 type Configuration struct {
-	UserName string `yaml:"username"`
-	PassWord string `yaml:"password"`
+	GitlabUrl   string `yaml:"gitlab_url"`
+	GitlabToken string `yaml:"gitlab_token"`
 }
 
 var config *Configuration
@@ -35,13 +35,13 @@ func LoadConfig() *Configuration {
 		}
 
 		// 如果环境变量有配置，读取环境变量
-		username := os.Getenv("USERNAME")
-		if username != "" {
-			config.UserName = username
+		gUrl := os.Getenv("GITLAB_URL")
+		if gUrl != "" {
+			config.GitlabUrl = gUrl
 		}
-		password := os.Getenv("PASSWORD")
-		if password != "" {
-			config.PassWord = password
+		gToken := os.Getenv("GITLAB_TOKEN")
+		if gToken != "" {
+			config.GitlabToken = gToken
 		}
 	})
 
