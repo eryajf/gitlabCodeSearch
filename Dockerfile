@@ -20,4 +20,4 @@ RUN mkdir /app && apk upgrade \
 
 WORKDIR /app
 COPY --from=builder /app/ .
-RUN chmod +x gcs && cp config.example.yml config.yml
+RUN chmod +x gcs && mv gcs /usr/local/bin/

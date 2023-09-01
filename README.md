@@ -25,14 +25,19 @@
 
 如果你熟悉go语言，则可以自己编译二进制，如果不熟悉，也可以直接在releases当中下载已经编译好的二进制。
 
-```
-export GITLAB_URL='http://gitlab.xx.com';export GITLAB_TOKEN='xxxxxxxxxxxxxx'; ./gcs search -w '想要扫描的关键字'
+```sh
+gcs search -u 'https://gitlab.xxx.com' -t 'xxxxxxxxxxx' -w '想要扫描的关键字'
 ```
 
 运行成功以后，会自动在项目运行目录下将结果输出为Excel。
 
-如果你还有其他需求，以及其他想法，欢迎提交PR。
+你也可以直接通过docker来运行：
 
+```sh
+docker run -it registry.cn-hangzhou.aliyuncs.com/ali_eryajf/gcs gcs search -u 'https://gitlab.xxx.com' -t 'xxxxxxxxxxx' -w '想要扫描的关键字'
+```
+
+如果你在使用过程中遇到问题，欢迎提交issue。如果你还有其他需求，以及其他想法，欢迎提交PR。
 
 ## 感谢开源
 

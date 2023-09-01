@@ -18,11 +18,9 @@ package main
 import (
 	"github.com/eryajf/gcs/cmd"
 	"github.com/eryajf/gcs/pkg/logger"
-	"github.com/eryajf/gcs/public"
 )
 
 func init() {
-	public.InitSvc()
 	logger.InitLogger("debug")
 }
 

@@ -42,5 +42,9 @@ func init() {
 	cset := GetConfigCmd.Flags()
 	cset.StringP("branch", "b", "master", "每个项目检索的分支，默认为master")
 	cset.StringP("word", "w", "", "检索的关键字")
+	cset.StringP("url", "u", "", "gitlab的地址")
+	cset.StringP("token", "t", "", "gitlab的认证token")
 	_ = GetConfigCmd.MarkFlagRequired("word")
+	_ = GetConfigCmd.MarkFlagRequired("url")
+	_ = GetConfigCmd.MarkFlagRequired("token")
 }
