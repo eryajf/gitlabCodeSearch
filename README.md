@@ -26,15 +26,20 @@
 如果你熟悉go语言，则可以自己编译二进制，如果不熟悉，也可以直接在releases当中下载已经编译好的二进制。
 
 ```sh
-gcs search -u 'https://gitlab.xxx.com' -t 'xxxxxxxxxxx' -w '想要扫描的关键字'
+gcs search -u 'https://gitlab.xxx.com' -t 'xxxxxxxxxxx' -w '测试'
 ```
+
+效果如下：
+
+![](https://cdn.staticaly.com/gh/eryajf/tu/main/img/image_20230902_000537.png)
+
 
 运行成功以后，会自动在项目运行目录下将结果输出为Excel。
 
 你也可以直接通过docker来运行：
 
 ```sh
-docker run -it registry.cn-hangzhou.aliyuncs.com/ali_eryajf/gcs gcs search -u 'https://gitlab.xxx.com' -t 'xxxxxxxxxxx' -w '想要扫描的关键字'
+docker run -it registry.cn-hangzhou.aliyuncs.com/ali_eryajf/gcs gcs search -u 'https://gitlab.xxx.com' -t 'xxxxxxxxxxx' -w '测试'
 ```
 
 如果你在使用过程中遇到问题，欢迎提交issue。如果你还有其他需求，以及其他想法，欢迎提交PR。
