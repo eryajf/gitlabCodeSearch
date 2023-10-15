@@ -13,17 +13,17 @@
 
 </div>
 
-日常工作中，我们在做一些变更的时候，经常会遇到对gitlab所有项目检索某个关键字的需求，这个工具，正是为解决这一需求而生的。
+日常工作中，我们在做一些变更的时候，经常会遇到对 gitlab 所有项目检索某个关键字的需求，这个工具，正是为解决这一需求而生的。
 
 ## 如何使用
 
-先创建gitlab的token，这一步就不介绍如何创建了。注意此token需要给：api和read_api两个权限。
+先创建 gitlab 的 token，这一步就不介绍如何创建了。注意此 token 需要给：api 和 read_api 两个权限。
 
 然后你可以通过配置文件，或者环境变量的方式将配置加载到程序当中。
 
 通过环境变量能够快速运行项目，因此这里强烈推荐你使用此方式：
 
-如果你熟悉go语言，则可以自己编译二进制，如果不熟悉，也可以直接在releases当中下载已经编译好的二进制。
+如果你熟悉 go 语言，则可以自己编译二进制，如果不熟悉，也可以直接在 releases 当中下载已经编译好的二进制。
 
 ```sh
 gcs search -u 'https://gitlab.xxx.com' -t 'xxxxxxxxxxx' -w '测试'
@@ -31,18 +31,17 @@ gcs search -u 'https://gitlab.xxx.com' -t 'xxxxxxxxxxx' -w '测试'
 
 效果如下：
 
-![](https://cdn.staticaly.com/gh/eryajf/tu/main/img/image_20230902_000537.png)
+![](https://cdn.jsdelivr.net/gh/eryajf/tu/img/image_20230902_000537.png)
 
+运行成功以后，会自动在项目运行目录下将结果输出为 Excel。
 
-运行成功以后，会自动在项目运行目录下将结果输出为Excel。
-
-你也可以直接通过docker来运行：
+你也可以直接通过 docker 来运行：
 
 ```sh
 docker run -it registry.cn-hangzhou.aliyuncs.com/ali_eryajf/gcs gcs search -u 'https://gitlab.xxx.com' -t 'xxxxxxxxxxx' -w '测试'
 ```
 
-如果你在使用过程中遇到问题，欢迎提交issue。如果你还有其他需求，以及其他想法，欢迎提交PR。
+如果你在使用过程中遇到问题，欢迎提交 issue。如果你还有其他需求，以及其他想法，欢迎提交 PR。
 
 ## 感谢开源
 
