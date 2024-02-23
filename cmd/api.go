@@ -79,6 +79,7 @@ func GetProjectBydid(pid int) (*gitlab.Project, error) {
 }
 
 type SearchResult struct {
+	Word        string
 	ProjectId   int
 	ProjectName string
 	ProjectUrl  string
@@ -89,19 +90,21 @@ type SearchResult struct {
 
 func outxlsx(msg []SearchResult) error {
 	xx := excelize.NewFile()
-	_ = xx.SetCellValue("Sheet1", "A1", "项目ID")
-	_ = xx.SetCellValue("Sheet1", "B1", "项目名")
-	_ = xx.SetCellValue("Sheet1", "C1", "项目地址")
-	_ = xx.SetCellValue("Sheet1", "D1", "文件名")
-	_ = xx.SetCellValue("Sheet1", "E1", "代码地址")
-	_ = xx.SetCellValue("Sheet1", "F1", "具体信息")
+	_ = xx.SetCellValue("Sheet1", "A1", "关键字")
+	_ = xx.SetCellValue("Sheet1", "B1", "项目ID")
+	_ = xx.SetCellValue("Sheet1", "C1", "项目名")
+	_ = xx.SetCellValue("Sheet1", "D1", "项目地址")
+	_ = xx.SetCellValue("Sheet1", "E1", "文件名")
+	_ = xx.SetCellValue("Sheet1", "F1", "代码地址")
+	_ = xx.SetCellValue("Sheet1", "G1", "具体信息")
 	for k, v := range msg {
-		_ = xx.SetCellValue("Sheet1", "A"+strconv.Itoa(k+2), v.ProjectId)
-		_ = xx.SetCellValue("Sheet1", "B"+strconv.Itoa(k+2), v.ProjectName)
-		_ = xx.SetCellValue("Sheet1", "C"+strconv.Itoa(k+2), v.ProjectUrl)
-		_ = xx.SetCellValue("Sheet1", "D"+strconv.Itoa(k+2), v.FileName)
-		_ = xx.SetCellValue("Sheet1", "E"+strconv.Itoa(k+2), v.LineUrl)
-		_ = xx.SetCellValue("Sheet1", "F"+strconv.Itoa(k+2), v.Data)
+		_ = xx.SetCellValue("Sheet1", "A"+strconv.Itoa(k+2), v.Word)
+		_ = xx.SetCellValue("Sheet1", "B"+strconv.Itoa(k+2), v.ProjectId)
+		_ = xx.SetCellValue("Sheet1", "C"+strconv.Itoa(k+2), v.ProjectName)
+		_ = xx.SetCellValue("Sheet1", "D"+strconv.Itoa(k+2), v.ProjectUrl)
+		_ = xx.SetCellValue("Sheet1", "E"+strconv.Itoa(k+2), v.FileName)
+		_ = xx.SetCellValue("Sheet1", "F"+strconv.Itoa(k+2), v.LineUrl)
+		_ = xx.SetCellValue("Sheet1", "G"+strconv.Itoa(k+2), v.Data)
 	}
 	err := xx.SaveAs(GetFileName())
 	if err != nil {
