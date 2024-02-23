@@ -5,7 +5,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+	http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -37,11 +37,10 @@ func Execute() {
 func init() {
 	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 
-	// 获取配置文件
 	rootCmd.AddCommand(GetConfigCmd)
 	cset := GetConfigCmd.Flags()
 	cset.StringP("branch", "b", "master", "每个项目检索的分支，默认为master")
-	cset.StringP("word", "w", "", "检索的关键字")
+	cset.StringSliceP("words", "w", []string{}, `检索的关键字，支持多个关键字，用逗号分隔，如：-w="v1,v2" -w="v3" 则表示分别检索v1,v2,v3三个关键字。`)
 	cset.StringP("url", "u", "", "gitlab的地址")
 	cset.StringP("token", "t", "", "gitlab的认证token")
 	_ = GetConfigCmd.MarkFlagRequired("word")

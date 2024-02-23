@@ -43,6 +43,9 @@ docker run -it registry.cn-hangzhou.aliyuncs.com/ali_eryajf/gcs gcs search -u 'h
 
 如果你在使用过程中遇到问题，欢迎提交 issue。如果你还有其他需求，以及其他想法，欢迎提交 PR。
 
+- 🎉 2024年2月23日更新：
+  - 现在支持指定多个关键字了，用法如下：`gcs search -u 'https://gitlab.xxx.com' -t 'xxxxxxxxxxx' -w 'a,b,c'`
+
 ## 感谢开源
 
 此框架建立在如下几个优秀的开源项目之上：
